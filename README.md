@@ -15,10 +15,6 @@ PlacementPrep.AI is your end-to-end solution for landing your dream engineering 
 ## Why PlacementPrep.AI?
 We help engineers navigate their career journey by providing all the tools necessary to prepare for specific roles, like becoming a frontend developer at AWS. Our platform ensures you have everything needed for your dream job, from skill assessments to interview preparation.
 
-## Challenges Addressed
-- **Personalized Roadmaps**: Generating customized roadmaps using the GEMINI API.
-- **Resume Scraping**: Extracting accurate information from resumes.
-
 ## Project Links
 - [Demo](https://www.loom.com/share/cd4115f8f7384472b87279d78514500c?sid=e727d201-2683-4d77-bdd5-8228c381a05e)
 - [Project](https://devfolio.co/projects/placementprepai-5594)
@@ -29,6 +25,7 @@ We help engineers navigate their career journey by providing all the tools neces
 - Sharvin Gavad
 - Myron Dabreo
 - Neston Cabral
+
 
 ## Technologies Used
 - Django
@@ -48,5 +45,11 @@ We help engineers navigate their career journey by providing all the tools neces
 ![image](https://github.com/ARYANK-08/aeravat/assets/120780784/db985d58-4359-4695-95a8-d5f55414e1fc)
 
 ![image](https://github.com/ARYANK-08/aeravat/assets/120780784/4fe09d7b-7108-4d66-ab01-6051edc8bc98)
+
+## Challenges Addressed
+- **Personalized Roadmaps**: Generating customized roadmaps using the GEMINI API & roadmaps.sh
+- **Resume Scraping**: Extracting accurate information from resumes.
+
+thanks :)
 
 
