@@ -3,7 +3,7 @@ from django.http import JsonResponse
 import os
 from gtts import gTTS
 import speech_recognition as sr
-import pyttsx3  
+import pyttsx3   # type: ignore
 
 
 # Built-in questions

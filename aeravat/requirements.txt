@@ -1,0 +1,12 @@
+django==4.2.16
+djangorestframework==3.15.2
+PyMuPDF
+google-search-results
+PyPDF2
+langchain
+langchain-google-genai
+langchain-community
+beautifulsoup4
+gtts
+SpeechRecognition
+

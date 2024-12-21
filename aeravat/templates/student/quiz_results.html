@@ -105,29 +105,26 @@
   </div>
   
   
-          <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var strengthsLabels = {{ strengths | safe }};
-                var improvementsLabels = {{ improvements | safe }};
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var strengthsLabels = {{ strengths | safe }};
+      var improvementsLabels = {{ improvements | safe }};
             
-                // A simple function to generate a distinct background color array
-                function generateBackgroundColors(count) {
-                    const colors = ['#4caf50', '#2196f3', '#ffeb3b', '#ff9800', '#f44336'];
-                    let bgColors = [];
-                    for (let i = 0; i < count; i++) {
-                        bgColors.push(colors[i % colors.length]);
-                    }
-                    return bgColors;
-                }
-            
-                var strengthsChartData = {
-                    labels: strengthsLabels,
-                    datasets: [{
-                        data: strengthsLabels.map(() => 1), // Assuming equal value for simplicity; you might want to adjust
-                        backgroundColor: generateBackgroundColors(strengthsLabels.length),
-                        hoverOffset: 4
-                    }]
-                };
+// A simple function to generate a distinct background color array
+function generateBackgroundColors(count) {const colors = ['#4caf50', '#2196f3', '#ffeb3b', '#ff9800', '#f44336'];
+let bgColors = [];
+for (let i = 0; i < count; i++) {
+bgColors.push(colors[i % colors.length]);
+  }
+  return bgColors;
+}
+var strengthsChartData = {  labels: strengthsLabels,
+datasets: [{
+    data: strengthsLabels.map(() => 1), // Assuming equal value for simplicity; you might want to adjust
+    backgroundColor: generateBackgroundColors(strengthsLabels.length),
+    hoverOffset: 4
+  }]
+};
             
                 var improvementsChartData = {
                     labels: improvementsLabels,
@@ -151,6 +148,4 @@
                 });
             });
             </script>
-            
-            
 {% endblock %}

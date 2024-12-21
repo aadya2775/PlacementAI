@@ -13,6 +13,12 @@ from .models import Choice, StudentProfile
 
 import re
 import fitz  # PyMuPDF
+# studentprofile/views.py
+
+
+def skill_assessment(request):
+    return render(request, 'skill_assessment.html')  # Or any appropriate response
+
 
 def extract_text_from_pdf(pdf_path):
     """Extracts text from a PDF file."""
@@ -293,12 +299,40 @@ from serpapi import GoogleSearch
 from django.shortcuts import render
 from serpapi import GoogleSearch
 
+# def job_listings(request):
+#     jobs = []  # Default empty state for jobs
+
+
+#     job_type = 'Front End Developer'
+#     location = 'Mumbai'
+
+#     params = {
+#         "engine": "google_jobs",
+#         "google_domain": "google.co.in",
+#         "q": job_type,
+#         "hl": "hi",
+#         "gl": "in",
+#         "location": location,
+#         "api_key": "63717a6375c3289fae06621a3846332972c18a825a8ac3297da171a34e15c854"
+#     }
+
+
+#     search = GoogleSearch(params)
+#     results = search.get_dict()
+#     jobs = results.get('jobs_results', [])  # Safely get job results or empty list
+#     print(jobs)
+#     # Pass the jobs list to the template
+#     return render(request, 'student/jobs.html', {'jobs': jobs})
+from serpapi import GoogleSearch
+from django.shortcuts import render
+from django.http import HttpResponse
+
 def job_listings(request):
     jobs = []  # Default empty state for jobs
 
-
-    job_type = 'Front End Developer'
-    location = 'Mumbai'
+    # Optional: Get job type and location from request parameters for flexibility
+    job_type = request.GET.get('job_type', 'Front End Developer')
+    location = request.GET.get('location', 'Mumbai')
 
     params = {
         "engine": "google_jobs",
@@ -310,13 +344,18 @@ def job_listings(request):
         "api_key": "63717a6375c3289fae06621a3846332972c18a825a8ac3297da171a34e15c854"
     }
 
+    try:
+        search = GoogleSearch(params)
+        results = search.get_dict()
+        jobs = results.get('jobs_results', [])  # Safely get job results or empty list
+    except Exception as e:
+        # Log the error and provide a fallback response
+        print(f"Error fetching jobs: {e}")
+        return HttpResponse("Unable to fetch job listings at the moment. Please try again later.", status=500)
 
-    search = GoogleSearch(params)
-    results = search.get_dict()
-    jobs = results.get('jobs_results', [])  # Safely get job results or empty list
-    print(jobs)
     # Pass the jobs list to the template
     return render(request, 'student/jobs.html', {'jobs': jobs})
+
 
 
 def dashboard(request):
